@@ -15,6 +15,7 @@ public class Services {
 	public Customer getCustomer(int id) {
 		return adao.getCustomerById(id);
 	}
+	
 
 	public Transactions getTransaction(int id) {
 		return adao.getTransactionByID(id);
@@ -32,6 +33,8 @@ public class Services {
 	public void insertCustomer(Customer customer) {
 		adao.insertCustomer(customer);
 	}
+	
+
 	
 }
 

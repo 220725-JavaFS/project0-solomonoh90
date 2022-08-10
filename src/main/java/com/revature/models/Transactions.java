@@ -8,15 +8,17 @@ public class Transactions {
 	private int transactionID;
 	private String date;
 	private double amount;
-	private int accountID;
+	private int customerID;
+	private String email;
 	private String status;
 	
-	public Transactions(int transactionID, String date, double amount, int accountID, String status) {
+	public Transactions(int transactionID, String date, double amount, int customerID, String email, String status) {
 		super();
 		this.transactionID = transactionID;
 		this.date = date;
 		this.amount = amount;
-		this.accountID = accountID;
+		this.customerID = customerID;
+		this.email = email;
 		this.status = status;
 	}
 	
@@ -24,11 +26,12 @@ public class Transactions {
 
 	
 
-	public Transactions(String date, double amount, int accountID, String status) {
+	public Transactions(String date, double amount, int customerID, String email, String status) {
 		super();
 		this.date = date;
 		this.amount = amount;
-		this.accountID = accountID;
+		this.customerID = customerID;
+		this.email = email;
 		this.status = status;
 	}
 
@@ -60,12 +63,12 @@ public class Transactions {
 		this.amount = amount;
 	}
 
-	public int getAccountID() {
-		return accountID;
+	public int getcustomerID() {
+		return customerID;
 	}
 
-	public void setAccountID(int accountID) {
-		accountID = accountID;
+	public void setcustomerID(int accountID) {
+		customerID = customerID;
 	}
 
 	public String getStatus() {
@@ -78,7 +81,7 @@ public class Transactions {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(accountID, transactionID, amount, date, status);
+		return Objects.hash(customerID, transactionID, amount, date, status);
 	}
 
 	@Override
@@ -90,15 +93,15 @@ public class Transactions {
 		if (getClass() != obj.getClass())
 			return false;
 		Transactions other = (Transactions) obj;
-		return accountID == other.accountID && transactionID == other.transactionID
+		return customerID == other.customerID && transactionID == other.transactionID
 				&& Double.doubleToLongBits(amount) == Double.doubleToLongBits(other.amount)
 				&& Objects.equals(date, other.date) && Objects.equals(status, other.status);
 	}
 
 	@Override
 	public String toString() {
-		return "Transactions [TransactionID=" + transactionID + ", date=" + date + ", amount=" + amount + ", AccountID="
-				+ accountID + ", status=" + status + "]";
+		return "Transactions [TransactionID=" + transactionID + ", date=" + date + ", amount=" + amount + ", customerID="
+				+ customerID + ", email =" + email + ", status=" + status + "]";
 	}
 	
 	

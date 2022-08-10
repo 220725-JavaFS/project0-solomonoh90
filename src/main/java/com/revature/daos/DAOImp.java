@@ -24,10 +24,12 @@ public class DAOImp implements DAO {
 
 			if (result.next()) {
 				Customer customer = new Customer(result.getInt("customer_id"), result.getString("customer_name"),
-						result.getString("customer_username"), result.getDouble("customer_balance"),
-						result.getString("customer_password"), result.getString("account_type"), null
+						result.getString("customer_email"), result.getDouble("customer_balance"),
+						result.getString("customer_username"), result.getString("account_type"), null
 
 				);
+				
+				
 
 				return customer;
 			}
@@ -40,7 +42,7 @@ public class DAOImp implements DAO {
 
 	public static void main(String[] args) {
 		DAO aDao = new DAOImp();
-		Customer a = aDao.getCustomerById(1);
+		Customer a = aDao.getCustomerById(2);
 		System.out.println(a);
 	}
 
@@ -55,9 +57,10 @@ public class DAOImp implements DAO {
 				Transactions newTrans = new Transactions(
 				result.getInt("transaction_id"), 
 				result.getString("transaction_date"), 
-	            result.getDouble("amount"), 
-	            result.getInt("account_id"), 
-	            result.getString("transaction_status") 
+	            result.getDouble("transaction_amount"), 
+	            result.getInt("customer_id"), 
+	            result.getString("customer_email"), 
+	            result.getString("transaction_status")
 	        	
 	            );
 				return newTrans;
@@ -154,7 +157,8 @@ public class DAOImp implements DAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	
 
 
 

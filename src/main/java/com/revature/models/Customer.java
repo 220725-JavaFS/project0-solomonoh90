@@ -7,11 +7,10 @@ public class Customer {
 	
 	public int CustomerID;
 	public String name;
+	private String email;
 	public String username;
 	private double balance;
 	private String password;
-	private Account account;
-	private String email;
 	private String accountType;
 	private ArrayList<Account> accounts = new ArrayList<Account>();
 	
@@ -50,9 +49,7 @@ public class Customer {
 
 
 
-	public Customer(int i, String string, String string2, double d, String string3, String string4, Object object) {
-		// TODO Auto-generated constructor stub
-	}
+	
 
 
 
@@ -139,10 +136,13 @@ public class Customer {
 				
 	}
 
+	
+
 	@Override
 	public String toString() {
-		return "Customer [CustomerID=" + CustomerID + ", name=" + name + ", username =" + username + ", balance=" + balance + ", password=" + password
-				+ ", accountType=" + accountType + "]";
+		return "Customer [CustomerID=" + CustomerID + ", name=" + name + ", email=" + email + ", username=" + username
+				+ ", balance=" + balance + ", password=" + password + ", accountType=" + accountType + ", accounts="
+				+ accounts + "]";
 	}
 
 
@@ -154,6 +154,14 @@ public class Customer {
 	public void setAccounts(ArrayList<Account> accounts) {
 		this.accounts = accounts;
 	}
+
+
+	public void setBalance(Class<Integer> class1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 
 
 

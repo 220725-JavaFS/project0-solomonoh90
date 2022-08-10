@@ -1,5 +1,6 @@
 package com.revature.controllers;
 
+import java.util.List;
 import java.util.Scanner;
 
 import com.revature.daos.DAO;
@@ -14,12 +15,13 @@ public class Admin {
 	
 	Scanner scan = new Scanner(System.in);
 	int id;
+	Services service = new Services();
 
 	
 	public  void AdminMenu() {
 		
 		do{ 
-			System.out.println("Welcome to your account " + "\n 1. Add Customer" + "\n 2. Delete customer " + "\n 3. Search Customer" + "\n 4. View Transasctions" + "\n 5. Exit" );
+			System.out.println("Welcome to your account " + "\n 1. Add Customer" + "\n 2. Delete customer " + "\n 3. Search Customer" + "\n 4. View Transasctions" + "\n 5. View all Customers" + "\n 6. Exit" );
 		
 		int choice = scan.nextInt();
 		
@@ -60,8 +62,16 @@ public class Admin {
 			Transactions transaction = dao1.getTransactionByID(id2);
 			System.out.println("Here is your Transaction: \n" + transaction);	
 			break;
+		
+		case 5:
+			List<Customer> list = service.getAllCustomers();
+			System.out.println("Here is the customer list: ");
+			for(Customer a: list) {
+				System.out.println(a);
+			}
+			break;
 			
-		case 5: 
+		case 6: 
 			System.out.println("Thank you for using our System");
 			Login login = new Login();
 			login.LoginMenu();

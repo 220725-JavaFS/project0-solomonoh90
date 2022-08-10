@@ -22,4 +22,5 @@ public interface DAO {
 		public abstract Customer getCustomerByEmail(String email);
 
 		Customer getCustomerbyemail();
+
 }
