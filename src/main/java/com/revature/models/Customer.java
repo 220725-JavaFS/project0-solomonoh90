@@ -15,7 +15,7 @@ public class Customer {
 	private ArrayList<Account> accounts = new ArrayList<Account>();
 	
 	
-	public Customer(int CustomerID, String name,  String username, double balance, String password, String accountType, String email) {
+	public Customer(int CustomerID, String name, String email, String username, double balance, String password, String accountType) {
 		super();
 		this.CustomerID = CustomerID;
 		this.name = name;
@@ -27,7 +27,7 @@ public class Customer {
 	}
 
 
-	public Customer(String name, String username, double balance, String password, String accountType, String email) {
+	public Customer(String name, String username, String email, double balance, String password, String accountType) {
 		super();
 		this.name = name;
 		this.username= username;

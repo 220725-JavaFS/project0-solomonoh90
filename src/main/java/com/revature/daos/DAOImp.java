@@ -24,8 +24,8 @@ public class DAOImp implements DAO {
 
 			if (result.next()) {
 				Customer customer = new Customer(result.getInt("customer_id"), result.getString("customer_name"),
-						result.getString("customer_email"), result.getDouble("customer_balance"),
-						result.getString("customer_username"), result.getString("account_type"), null
+						result.getString("customer_email"), result.getString("customer_username"),
+						result.getDouble("customer_balance"), result.getString("account_type"), null
 
 				);
 				
@@ -112,8 +112,8 @@ public class DAOImp implements DAO {
 									// the next group of values.
 				// It starts one before so you always need to call next.
 				Customer customer = new Customer(result.getInt("customer_id"), result.getString("customer_name"),
-						result.getString("customer_username"), result.getDouble("customer_balance"),
-						result.getString("customer_password"), result.getString("account_type"), null);
+						result.getString("customer_username"), result.getString("customer_password"),
+						result.getDouble("customer_balance"), result.getString("account_type"), null);
 
 				customerList.add(customer);
 			}
@@ -164,17 +164,6 @@ public class DAOImp implements DAO {
 		return null;
 	}
 
-	@Override
-	public Customer getCustomerById(String username, String password) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public double getBalance(String username) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 	
 	
 

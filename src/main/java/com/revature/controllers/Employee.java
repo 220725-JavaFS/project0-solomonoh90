@@ -35,8 +35,7 @@ public class Employee {
 					int c = scan.nextInt();
 					DAO aDao = new DAOImp();
 					Customer a = aDao.getCustomerById(c);
-					System.out.println(a);
-					System.out.println("Here is your customer: \n" + a);	
+					System.out.println(a);	
 					break;
 					 	
 				
