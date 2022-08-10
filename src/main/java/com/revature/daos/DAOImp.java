@@ -157,6 +157,24 @@ public class DAOImp implements DAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Customer getCustomerByEmail(String email) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Customer getCustomerById(String username, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public double getBalance(String username) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 	
 

@@ -15,7 +15,10 @@ public class CustomerMenuController {
 	DAO dao = new DAOImp();
 	int id;
 	Customer customer = dao.getCustomerById(id);
-	double balance = 0;
+	double balance;
+	Services service = new Services();
+	double previousTransaction;
+	int years;
 	
 	
 	public void customerMenu(int id) {
@@ -28,7 +31,7 @@ public class CustomerMenuController {
 	
 
 		do{ 
-		System.out.println("Welcome to your account " + "\n 1. Deposit" + "\n 2. Check Balance " + "\n 3. Withdraw" + "\n 4. View Account Info " + "\n 5. Exit");
+		System.out.println("Welcome to your account " + "\n 1. Deposit" + "\n 2. Check Balance " + "\n 3. Withdraw" + "\n 4. View Previous Transaction" + "\n 5. Calculate Interest" + "\n 6. View Account Info " + "\n 7. Exit");
 		int choice = scan.nextInt();
 		
 		 
@@ -39,10 +42,11 @@ public class CustomerMenuController {
 		case 1:
 			
 			System.out.println("Deposit amount: ");
-			double deposit = scan.nextDouble();
-			balance = balance + deposit;
-			dao.updateBalance(balance, id);
+			double amount = scan.nextDouble();
+			balance = balance + amount;
+			previousTransaction = amount;
 			System.out.println("Your balance is:" + balance);
+			
 			break;
 			
 		case 2:
@@ -53,25 +57,47 @@ public class CustomerMenuController {
 		case 3:
 			
 			System.out.println("Withdrawal amount: ");
-			double withdraw = scan.nextDouble();
+			amount = scan.nextDouble();
 			
 		
 			
-			if(withdraw > balance) {
+			if(amount > balance) {
 				
 				System.out.println("Insufficient funds, try another amount");
 				
 			}else {
 				
-				balance = balance - withdraw;
-				dao.updateBalance(balance, id);
+				balance = balance - amount;
+				previousTransaction = -amount;
 				System.out.println("Your balance is " + balance);
+			
 				break;
 				
 			}
 			
-		
 		case 4:
+			
+			if(previousTransaction > 0) {
+				System.out.println("Deposited: " + previousTransaction);
+			} else if (previousTransaction < 0) {
+				System.out.println("Withdrawn: " + Math.abs(previousTransaction));
+			} else {
+				System.out.println("No Transaction occured");
+			}
+			
+		case 5:
+			
+			System.out.println("Enter number of years: ");
+			years = scan.nextInt();
+			double interestRate = 0.05;
+			double newBalance = (balance * interestRate * years) + balance;
+			System.out.println("The current interest rate is " + (100 * interestRate) + "%");
+			System.out.println("After " + years + " years, your balance will be: " + newBalance);
+			break;
+
+			
+		
+		case 6:
 			 
 			System.out.println("Enter Customer ID: ");						
 			int c = scan.nextInt();
@@ -82,7 +108,7 @@ public class CustomerMenuController {
 			break;
 			
 			
-		case 5:
+		case 7:
 			
 			System.out.println("Thank you for using our services!");
 			Login login = new Login();
@@ -107,6 +133,6 @@ public class CustomerMenuController {
 
 }
 
-
+	
 
 }
