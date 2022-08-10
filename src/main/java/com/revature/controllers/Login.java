@@ -50,6 +50,12 @@ public class Login {
 			employee.employeeMenu();
 			break;
 			
+		case 5:
+			
+			System.out.println("Thank you for using our system");
+			scan.close();
+			break;
+			
 		default:
 			
 			System.out.println("Please select another option");
