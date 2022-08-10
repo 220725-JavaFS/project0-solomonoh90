@@ -26,7 +26,8 @@ public class CustomerMenuController {
 		System.out.println("Enter Username: ");
 		String username = scan.nextLine().trim();
 		
-		System.out.println("Enter Password: ");
+		
+		System.out.println("\nEnter Password: ");
 		String password = scan.nextLine().trim();
 	
 
@@ -84,6 +85,7 @@ public class CustomerMenuController {
 			} else {
 				System.out.println("No Transaction occured");
 			}
+			break;
 			
 		case 5:
 			
