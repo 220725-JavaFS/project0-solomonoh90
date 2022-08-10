@@ -68,35 +68,10 @@ public class Login {
 
 
 
-	public void userLogin() {
-		
-		
-		System.out.println("Enter Username: \n");
-		String username = scan.nextLine();
-		
-		
-		if(username.equals("admin")) {
-			Admin admin = new Admin();
-			admin.AdminMenu();
-			
-		}
-		else if (username.equals("employee")){
-			Employee employee = new Employee();
-			employee.employeeMenu();
-			
-			
-		} else if (username.equals("")) {
-			CustomerMenuController customer1 = new CustomerMenuController();
-			customer1.customerMenu(0);
-		}else {
-			
-			System.out.println("Incorrect login information please try again");
-			userLogin();
-		}
-		
+	
 		
 	
 		
 	}
 		
-	}
+	
